@@ -18,7 +18,7 @@ router.post("/:id", async (req, res) => {
         .status(400)
         .json({ message: "Invalid ID format or lead not found!" });
     }
-    const checkAgentId = await SalesAgent.findOne({ _id: agentId });
+    const checkAgentId = await SalesAgent.findOne({ _id: author });
     if (!checkAgentId) {
       return res.status(400).json({ message: "Agent not found!" });
     }
