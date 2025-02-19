@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
     const { name, source, status, timeToClose, priority, salesAgent, tags } =
       req.body;
 
-    if (!name && !status && !timeToClose && !priority && !source && !tags) {
+    if (!name || !status || !timeToClose || !priority || !source || !tags) {
       res.status(400).json({ error: "Invalid input: all fields is required." });
     }
     const findAgents = await SalesAgent.find();
